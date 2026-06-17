@@ -1,0 +1,12 @@
+{
+  "name": "widget_proxy",
+  "version": "1.0.0",
+  "description": "Small, simple, Cloudflare worker script to proxy Discord widget JSON requests.",
+  "main": "./src/app.js",
+  "author": "Isaac <isaac@grphcrtv.com>",
+  "license": "MIT",
+  "devDependencies": {
+	"wrangler": "^4.61.1",
+	"@chouquette/gleam": "1.17.0"
+  }
+}

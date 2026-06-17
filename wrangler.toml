@@ -1,0 +1,10 @@
+name = "widget_proxy"
+main = "./build/dev/javascript/widget_proxy/app.js"
+compatibility_date = "2026-06-17"
+
+[vars]
+CACHE_TTL = 300 # Stored in seconds, 300s = 5m.
+
+[[kv_namespaces]]
+binding = "WIDGET_PROXY_CACHE"
+id = "7bf13a345a0d4776b7a0cecef751c775"
