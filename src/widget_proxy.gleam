@@ -42,6 +42,7 @@ fn handle_widget(
       |> response.set_header("content-type", "application/json")
       |> response.set_header("x-proxy-cache", "HIT")
       |> response.set_body(json)
+      |> cors
       |> chains.http_to_js_response
       |> promise.resolve
 
@@ -63,6 +64,7 @@ fn fetch_and_cache(
       |> response.set_header("x-proxy-cache", "MISS")
       |> response.set_header("x-cached-at", int.to_string(now_seconds))
       |> response.set_body(body)
+      |> cors
       |> chains.http_to_js_response
       |> promise.resolve
     }
@@ -70,12 +72,14 @@ fn fetch_and_cache(
       response.new(status)
       |> response.set_header("content-type", "application/json")
       |> response.set_body(body)
+      |> cors
       |> chains.http_to_js_response
       |> promise.resolve
     Error(_) ->
       response.new(502)
       |> response.set_header("content-type", "application/json")
       |> response.set_body("{\"error\":\"upstream fetch failed\"}")
+      |> cors
       |> chains.http_to_js_response
       |> promise.resolve
   }
@@ -102,5 +106,12 @@ fn not_found() -> chains.JsResp {
   response.new(404)
   |> response.set_header("content-type", "application/json")
   |> response.set_body("{\"error\":\"not found\"}")
+  |> cors
   |> chains.http_to_js_response
+}
+
+fn cors(resp: response.Response(a)) -> response.Response(a) {
+  resp
+  |> response.set_header("access-control-allow-origin", "*")
+  |> response.set_header("access-control-allow-methods", "GET, OPTIONS")
 }
