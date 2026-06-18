@@ -14,4 +14,4 @@ GET https://widget-proxy.grphcrtv.com/{guild_id}
 
 Built by me, who would appreciate a [small sponsorship via GitHub](https://github.com/sponsors/graphiteisaac) if you've found this project useful
 
-Built with [Gleam]. [Sponsor them too](https://github.com/sponsors/gleam-lang)!
+Built with [Gleam](https://gleam.run). [Sponsor them too](https://github.com/sponsors/gleam-lang)!
