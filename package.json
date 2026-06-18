@@ -5,6 +5,9 @@
   "main": "./src/app.js",
   "author": "Isaac <isaac@grphcrtv.com>",
   "license": "MIT",
+  "scripts": {
+	"build": "gleam build"
+  },
   "devDependencies": {
 	"wrangler": "^4.61.1",
 	"@chouquette/gleam": "1.17.0"

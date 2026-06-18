@@ -1,5 +1,5 @@
 name = "widget_proxy"
-main = "./build/dev/javascript/widget_proxy/app.js"
+main = "./src/worker.js"
 compatibility_date = "2026-06-17"
 
 [vars]

@@ -15,7 +15,7 @@ pub fn main() -> Nil {
 }
 
 pub fn request_format_test() {
-  let req = widget_proxy.req(test_server_id)
+  let req = widget_proxy.widget_req(test_server_id)
 
   assert list.contains(req.headers, #(
     "user-agent",
@@ -25,7 +25,7 @@ pub fn request_format_test() {
 }
 
 pub fn can_fetch_test() {
-  let req = widget_proxy.req(test_server_id)
+  let req = widget_proxy.widget_req(test_server_id)
 
   use resp <- promise.try_await(fetch.send(req))
   use resp <- promise.try_await(fetch.read_bytes_body(resp))
